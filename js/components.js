@@ -109,7 +109,7 @@ function TitleBar() {
     return (
         <nav>
             <div className="h3 text-center fw-normal" style={{ letterSpacing: "2px" }}>RK Tasks</div>
-            <button onClick={ ()=>{ deleteCookie();window.location.reload(); } } type="button" className="btn btn-danger" style={ { position: "fixed", top : "12.5px" , right: "12.5px" } }>Logout</button>
+            <button onClick={ ()=>{ deleteCid();window.location.reload(); } } type="button" className="btn btn-danger" style={ { position: "fixed", top : "12.5px" , right: "12.5px" } }>Logout</button>
         </nav>
     )
 }
