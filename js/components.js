@@ -104,7 +104,6 @@ function Login(){
 function TitleBar() {
     const deleteCid = () => {
         document.cookie = "credentialId="
-        alert( document.cookie )
     }
     return (
         <nav>
