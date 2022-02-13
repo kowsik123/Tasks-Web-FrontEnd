@@ -103,7 +103,8 @@ function Login(){
 
 function TitleBar() {
     const deleteCid = () => {
-        document.cookie = "credentialId=; expires=Thu, 01 Jan 1970 00:00:00 GMT; max-age=0;";
+        document.cookie = "credentialId="
+        alert( document.cookie )
     }
     return (
         <nav>
