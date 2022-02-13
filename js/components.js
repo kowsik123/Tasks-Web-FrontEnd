@@ -102,10 +102,13 @@ function Login(){
 }
 
 function TitleBar() {
+    const deleteCookie = (name) => {
+        document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
     return (
         <nav>
             <div className="h3 text-center fw-normal" style={{ letterSpacing: "2px" }}>RK Tasks</div>
-            <button onClick={ ()=>{ window.cookieStore.delete("credentialId");window.cookieStore.delete("name");window.location.reload(); } } type="button" className="btn btn-danger" style={ { position: "fixed", top : "12.5px" , right: "12.5px" } }>Logout</button>
+            <button onClick={ ()=>{ deleteCookie("credentialId");deleteCookie("name");window.location.reload(); } } type="button" className="btn btn-danger" style={ { position: "fixed", top : "12.5px" , right: "12.5px" } }>Logout</button>
         </nav>
     )
 }
@@ -176,7 +179,7 @@ function TaskUI( { task }) {
 function TaskGroupPane({ taskGroup, active }) {
     return (
         <div className={"container py-2 tab-pane task_group_pane" + ((active) ? " active" : "")} id={"TG"+taskGroup.getId()}>
-            { (taskGroup.getTaskList().length===0)? <><img alt="empty" src="img/empty_img.jpg" className="empty_img" /><h3 className="empty_img_text">No Task</h3></>: <></> }
+            { (taskGroup.getTaskList().length===0)? <><img alt="empty" src="/RK-Tasks-Web/img/empty_img.jpg" className="empty_img" /><h3 className="empty_img_text">No Task</h3></>: <></> }
             { taskGroup.getTaskList().map( task => {
                 let NewTaskUI= task.getTaskUI();
                 return <NewTaskUI key={Math.random().toString()} />
@@ -308,8 +311,8 @@ function ServerError(){
         <div className="w-100 d-flex justify-content-center align-items-center" style={{height:"100vh"}}>
             <div className="container text-dark" style={{backgroundColor: "",borderRadius:"10px"}}>
                 <img src="img/error2.jpg" className="d-block mx-auto mt-4" style={{height: "180px",width: "290px"}} />
-                <h3 className="text-center mt-2">Sorry, Something went wrong</h3>
-                <h4 className="text-center">Try Again Later</h4>
+                <h3 className="text-center mt-2">Server Not Available</h3>
+                <h4 className="text-center">Try Guest Login</h4>
                 <button className="btn btn-primary d-block my-4 mx-auto btn-focus-style" style={{backgroundColor: "rgb(108, 82, 190)",borderColor: "rgb(100, 80, 180)"}} onClick={()=>{ window.location.reload() }}>Reload</button>
             </div>
         </div>
