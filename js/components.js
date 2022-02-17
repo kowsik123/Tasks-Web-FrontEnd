@@ -179,7 +179,7 @@ function TaskUI( { task }) {
 function TaskGroupPane({ taskGroup, active }) {
     return (
         <div className={"container py-2 tab-pane task_group_pane" + ((active) ? " active" : "")} id={"TG"+taskGroup.getId()}>
-            { (taskGroup.getTaskList().length===0)? <><img alt="empty" src="/RK-Tasks-Web/img/empty_img.jpg" className="empty_img" /><h3 className="empty_img_text">No Task</h3></>: <></> }
+            { (taskGroup.getTaskList().length===0)? <><img alt="empty" src="img/empty_img.jpg" className="empty_img" /><h3 className="empty_img_text">No Task</h3></>: <></> }
             { taskGroup.getTaskList().map( task => {
                 let NewTaskUI= task.getTaskUI();
                 return <NewTaskUI key={Math.random().toString()} />
